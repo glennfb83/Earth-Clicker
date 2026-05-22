@@ -209,7 +209,7 @@ button:hover {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.6);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -217,6 +217,7 @@ button:hover {
 	opacity: 1;
 	transition: opacity 0.3s ease;
 	overflow-y: auto;
+	padding: 20px;
 }
 
 .modal.hidden {
@@ -269,106 +270,117 @@ button:hover {
 
 /* INSTRUCTIONS MODAL SPECIFIC */
 .instructions-modal {
-	max-width: 700px;
-	max-height: 90vh;
+	max-width: 550px;
+	max-height: 80vh;
 	overflow-y: auto;
+	padding: 30px;
+}
+
+.instructions-modal h1 {
+	font-size: 36px;
+	margin-bottom: 8px;
 }
 
 .instructions-subtitle {
-	font-size: 20px;
+	font-size: 16px;
 	color: #a7f3d0;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 
 .instructions-content {
 	text-align: left;
-	background: rgba(0, 0, 0, 0.2);
-	padding: 20px;
-	border-radius: 10px;
-	margin-bottom: 20px;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 15px;
+	border-radius: 8px;
+	margin-bottom: 15px;
 }
 
 .instructions-content h2 {
 	text-align: center;
-	margin-top: 0;
+	margin: 0 0 12px 0;
+	font-size: 18px;
 }
 
 .instructions-content p {
-	font-size: 16px;
-	line-height: 1.8;
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 0;
 }
 
 .phase-guide {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
-	margin: 15px 0;
+	gap: 10px;
+	margin: 10px 0;
 }
 
 .phase-guide-item {
 	background: rgba(255, 255, 255, 0.05);
-	padding: 15px;
-	border-radius: 8px;
-	border-left: 4px solid #10b981;
+	padding: 10px;
+	border-radius: 6px;
+	border-left: 3px solid #10b981;
 }
 
 .phase-guide-title {
 	font-weight: bold;
-	font-size: 17px;
+	font-size: 14px;
 	color: #a7f3d0;
-	margin-bottom: 8px;
+	margin-bottom: 4px;
 }
 
 .phase-guide-item p {
-	font-size: 15px;
+	font-size: 13px;
 	margin: 0;
+	line-height: 1.5;
 }
 
 .actions-guide {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	margin: 15px 0;
+	gap: 8px;
+	margin: 10px 0;
 }
 
 .action-item {
 	background: rgba(255, 255, 255, 0.05);
-	padding: 12px;
-	border-radius: 8px;
-	border-left: 4px solid #3b82f6;
+	padding: 10px;
+	border-radius: 6px;
+	border-left: 3px solid #3b82f6;
 }
 
 .action-item strong {
 	color: #a7f3d0;
 	display: block;
-	margin-bottom: 6px;
-	font-size: 16px;
+	margin-bottom: 3px;
+	font-size: 13px;
 }
 
 .action-item p {
-	font-size: 15px;
+	font-size: 12px;
 	margin: 0;
 	color: #e0e7ff;
+	line-height: 1.5;
 }
 
 .instructions-tip {
 	background: rgba(59, 130, 246, 0.1);
 	border: 1px solid rgba(59, 130, 246, 0.3);
-	padding: 12px;
+	padding: 10px;
 	border-radius: 6px;
-	margin-top: 20px;
-	font-size: 15px;
+	margin-top: 15px;
+	font-size: 13px;
 	color: #93c5fd;
+	line-height: 1.5;
 }
 
 .start-btn {
 	background: #10b981;
-	padding: 15px 50px;
-	font-size: 18px;
+	padding: 12px 40px;
+	font-size: 15px;
 	width: 100%;
 	border: none;
 	transition: 0.3s;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .start-btn:hover {
