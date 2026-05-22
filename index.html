@@ -8,12 +8,17 @@
 </head>
 
 <body>
-	<section>
-		<div class="main">
+	<section class="wrapper">
+		
+		<div class="game">
 			
 			<div class="left">
-				<h3 id="pointsDisplay">Earth Points: 0</h3>
-				<img id="earth" src="assets/earth.png" alt="Earth">
+				<h2 id="pointsDisplay">Earth Points: 0</h2>
+
+				<div class="earth-container">
+					<img id="earth" src="assets/earth.png" alt="Earth">
+					<div id="perSecDisplay">+0 / sec</div>
+				</div>
 			</div>
 
 			<div class="right">
@@ -29,6 +34,7 @@
 			</div>
 
 		</div>
+
 	</section>
 
 	<script src="script.js"></script>
