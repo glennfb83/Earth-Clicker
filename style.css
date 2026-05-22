@@ -50,10 +50,11 @@ body {
 
 /* per second counter (FIXED) */
 #perSecDisplay {
-	font-size: 22px;
+	font-size: 14px;
 	font-weight: bold;
 	color: #7dd3fc;
 	text-shadow: 0 0 8px rgba(125, 211, 252, 0.5);
+	white-space: nowrap;
 }
 
 /* RIGHT SIDE (FIXED POSITIONING) */
@@ -83,6 +84,7 @@ button {
 	font-weight: bold;
 	font-size: 14px;
 	transition: 0.2s;
+	text-align: center;
 }
 
 button:hover {
