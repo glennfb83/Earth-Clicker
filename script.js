@@ -6,6 +6,7 @@ let clickCost = 10;
 let autoCost = 25;
 
 let gameWon = false;
+let tutorialSeen = false;
 
 // Phase thresholds
 const PHASE_1_START = 0;
@@ -92,7 +93,7 @@ function showVictory() {
 	timeStr += `${minutes}m ${seconds}s`;
 	
 	document.getElementById("victoryMessage").textContent = 
-		"You've successfully restored Earth to its full natural glory! Through your dedication to planting trees and investing in renewable energy, you've turned back the effects of climate change and created a thriving paradise.";
+		"You've successfully restored Earth to its full natural glory! Through your dedication to planting trees and investing in renewable energy, you've turned back the effects of climate change and created a thriving world!";
 	
 	document.getElementById("victoryStats").innerHTML = `
 		<p><strong>🌳 Trees Planted:</strong> ${Math.floor(points / 10)}</p>
@@ -103,6 +104,25 @@ function showVictory() {
 	
 	modal.classList.remove("hidden");
 }
+
+// Show tutorial modal
+function showTutorial() {
+	const modal = document.getElementById("tutorialModal");
+	modal.classList.remove("hidden");
+}
+
+// Hide tutorial modal
+function hideTutorial() {
+	const modal = document.getElementById("tutorialModal");
+	modal.classList.add("hidden");
+	tutorialSeen = true;
+	saveGame();
+}
+
+// Start button listener
+document.getElementById("startBtn").addEventListener("click", () => {
+	hideTutorial();
+});
 
 // Restart game
 document.getElementById("restartBtn").addEventListener("click", () => {
@@ -131,6 +151,7 @@ function loadGame() {
 		autoCost = saved.autoCost || 25;
 		gameWon = saved.gameWon || false;
 		gameTime = saved.gameTime || 0;
+		tutorialSeen = saved.tutorialSeen || false;
 		
 		// If game was already won, show the victory modal
 		if (gameWon) {
@@ -148,7 +169,8 @@ function saveGame() {
 		clickCost,
 		autoCost,
 		gameWon,
-		gameTime
+		gameTime,
+		tutorialSeen
 	}));
 }
 
@@ -224,3 +246,8 @@ setInterval(() => {
 // init
 loadGame();
 updateUI();
+
+// Show tutorial if first time
+if (!tutorialSeen) {
+	showTutorial();
+}
