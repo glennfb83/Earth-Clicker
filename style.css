@@ -7,6 +7,20 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: background 0.8s ease;
+}
+
+/* PHASE BACKGROUNDS */
+body.phase-dystopian {
+	background: linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 100%);
+}
+
+body.phase-recovery {
+	background: linear-gradient(135deg, #2d3d2d 0%, #3d4d3d 100%);
+}
+
+body.phase-thriving {
+	background: linear-gradient(135deg, #1a5f3f 0%, #2a8f5f 100%);
 }
 
 /* main layout */
@@ -26,7 +40,49 @@ body {
 
 #pointsDisplay {
 	font-size: 32px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+/* phase indicator */
+.phase-indicator {
 	margin-bottom: 20px;
+	width: 300px;
+}
+
+#phaseLabel {
+	font-size: 16px;
+	margin-bottom: 8px;
+	font-weight: bold;
+	color: #7dd3fc;
+}
+
+.phase-bar {
+	width: 100%;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 6px;
+	overflow: hidden;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#phaseProgress {
+	height: 100%;
+	background: linear-gradient(90deg, #3b82f6, #10b981);
+	width: 0%;
+	transition: width 0.3s ease;
+}
+
+body.phase-dystopian #phaseProgress {
+	background: linear-gradient(90deg, #ef4444, #8b5a3c);
+}
+
+body.phase-recovery #phaseProgress {
+	background: linear-gradient(90deg, #f59e0b, #10b981);
+}
+
+body.phase-thriving #phaseProgress {
+	background: linear-gradient(90deg, #10b981, #06b6d4);
 }
 
 /* earth area */
@@ -41,14 +97,49 @@ body {
 #earth {
 	width: 230px;
 	cursor: pointer;
-	transition: transform 0.1s ease;
+	transition: transform 0.1s ease, filter 0.8s ease;
+	filter: brightness(1);
+}
+
+body.phase-dystopian #earth {
+	filter: brightness(0.6) saturate(0.3);
+}
+
+body.phase-recovery #earth {
+	filter: brightness(0.85) saturate(0.7);
+}
+
+body.phase-thriving #earth {
+	filter: brightness(1) saturate(1.2);
 }
 
 #earth:active {
 	transform: scale(0.95);
 }
 
-/* per second counter (FIXED) */
+/* phase message */
+#phaseMessage {
+	font-size: 16px;
+	font-style: italic;
+	color: #a0aec0;
+	height: 24px;
+	margin-bottom: 8px;
+	transition: color 0.8s ease;
+}
+
+body.phase-dystopian #phaseMessage {
+	color: #ef4444;
+}
+
+body.phase-recovery #phaseMessage {
+	color: #f59e0b;
+}
+
+body.phase-thriving #phaseMessage {
+	color: #10b981;
+}
+
+/* per second counter */
 #perSecDisplay {
 	font-size: 14px;
 	font-weight: bold;
@@ -57,7 +148,7 @@ body {
 	white-space: nowrap;
 }
 
-/* RIGHT SIDE (FIXED POSITIONING) */
+/* RIGHT SIDE */
 .right {
 	width: 260px;
 	display: flex;
@@ -66,6 +157,22 @@ body {
 	background: rgba(255, 255, 255, 0.05);
 	padding: 20px;
 	border-radius: 12px;
+	transition: background 0.8s ease;
+}
+
+body.phase-dystopian .right {
+	background: rgba(139, 90, 60, 0.1);
+	border: 1px solid rgba(139, 90, 60, 0.3);
+}
+
+body.phase-recovery .right {
+	background: rgba(245, 158, 11, 0.1);
+	border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.phase-thriving .right {
+	background: rgba(16, 185, 129, 0.1);
+	border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .right h3 {
@@ -90,4 +197,83 @@ button {
 button:hover {
 	background: #2b7fff;
 	transform: scale(1.03);
+}
+
+/* VICTORY MODAL */
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+	display: none;
+	opacity: 0;
+}
+
+.modal-content {
+	background: linear-gradient(135deg, #1a5f3f 0%, #2a8f5f 100%);
+	padding: 40px;
+	border-radius: 20px;
+	text-align: center;
+	max-width: 600px;
+	border: 2px solid #10b981;
+	box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+	animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+	from {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.modal-content h1 {
+	font-size: 48px;
+	margin: 0 0 20px 0;
+}
+
+.modal-content p {
+	font-size: 18px;
+	margin: 10px 0;
+	line-height: 1.6;
+}
+
+#victoryStats {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+	margin: 20px 0;
+	text-align: left;
+}
+
+#victoryStats p {
+	margin: 8px 0;
+	font-size: 16px;
+}
+
+.restart-btn {
+	background: #10b981;
+	padding: 15px 40px;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+.restart-btn:hover {
+	background: #059669;
+	transform: scale(1.05);
 }
