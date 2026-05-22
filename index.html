@@ -4,17 +4,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Earth Clicker</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 	<section>
-    <div class="main">
-      <div class="left">
-        <h3>Earth Points:0</h3>
-        <img src="assets/earth.png" alt="" srcset="">
-      </div>
-      <div class="right">
-        
-      </div>
-  </section>
+		<div class="main">
+			
+			<div class="left">
+				<h3 id="pointsDisplay">Earth Points: 0</h3>
+				<img id="earth" src="assets/earth.png" alt="Earth">
+			</div>
+
+			<div class="right">
+				<h3>Upgrades</h3>
+
+				<button id="clickUpgradeBtn">
+					Upgrade Click (+1) — Cost: <span id="clickCost">10</span>
+				</button>
+
+				<button id="autoUpgradeBtn">
+					Auto Click (+1/sec) — Cost: <span id="autoCost">25</span>
+				</button>
+			</div>
+
+		</div>
+	</section>
+
+	<script src="script.js"></script>
 </body>
 </html>
