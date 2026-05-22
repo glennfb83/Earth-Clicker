@@ -6,7 +6,6 @@ let clickCost = 10;
 let autoCost = 25;
 
 let gameWon = false;
-let instructionsSeen = false;
 
 // Phase thresholds
 const PHASE_1_START = 0;
@@ -93,7 +92,7 @@ function showVictory() {
 	timeStr += `${minutes}m ${seconds}s`;
 	
 	document.getElementById("victoryMessage").textContent = 
-		"You've successfully restored Earth to its full natural glory! Through your dedication to planting trees and investing in renewable energy, you've turned back the effects of climate change and created a thriving planet!";
+		"You've successfully restored Earth to its full natural glory! Through your dedication to planting trees and investing in renewable energy, you've turned back the effects of climate change and created a thriving paradise.";
 	
 	document.getElementById("victoryStats").innerHTML = `
 		<p><strong>🌳 Trees Planted:</strong> ${Math.floor(points / 10)}</p>
@@ -121,13 +120,6 @@ document.getElementById("restartBtn").addEventListener("click", () => {
 	saveGame();
 });
 
-// Start game from instructions
-document.getElementById("startGameBtn").addEventListener("click", () => {
-	instructionsSeen = true;
-	document.getElementById("instructionsModal").classList.add("hidden");
-	saveGame();
-});
-
 // load game
 function loadGame() {
 	const saved = JSON.parse(localStorage.getItem("earthClickerSave"));
@@ -139,7 +131,6 @@ function loadGame() {
 		autoCost = saved.autoCost || 25;
 		gameWon = saved.gameWon || false;
 		gameTime = saved.gameTime || 0;
-		instructionsSeen = saved.instructionsSeen || false;
 		
 		// If game was already won, show the victory modal
 		if (gameWon) {
@@ -157,8 +148,7 @@ function saveGame() {
 		clickCost,
 		autoCost,
 		gameWon,
-		gameTime,
-		instructionsSeen
+		gameTime
 	}));
 }
 
@@ -170,6 +160,10 @@ function updateUI() {
 
 	// per second display
 	document.getElementById("perSecDisplay").textContent = `+${autoPower.toFixed(1)} / sec`;
+	
+	// Update button disabled state
+	document.getElementById("clickUpgradeBtn").disabled = points < clickCost || gameWon;
+	document.getElementById("autoUpgradeBtn").disabled = points < autoCost || gameWon;
 	
 	// Update phase
 	updatePhase();
@@ -230,10 +224,3 @@ setInterval(() => {
 // init
 loadGame();
 updateUI();
-
-// Show instructions modal if not seen before
-if (!instructionsSeen && !gameWon) {
-	document.getElementById("instructionsModal").classList.remove("hidden");
-} else {
-	document.getElementById("instructionsModal").classList.add("hidden");
-}
