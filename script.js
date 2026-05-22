@@ -29,7 +29,7 @@ const phases = {
 	},
 	thriving: {
 		name: "Thriving Earth",
-		message: "Earth is restored!",
+		message: "Earth is thriving!",
 		className: "phase-thriving"
 	}
 };
@@ -40,9 +40,10 @@ function getCurrentPhase() {
 		return "dystopian";
 	} else if (points < PHASE_2_END) {
 		return "recovery";
-	} else {
+	} else if (points < WIN_THRESHOLD) {
 		return "thriving";
 	}
+	return "thriving";
 }
 
 // Update phase visuals
@@ -130,6 +131,11 @@ function loadGame() {
 		autoCost = saved.autoCost || 25;
 		gameWon = saved.gameWon || false;
 		gameTime = saved.gameTime || 0;
+		
+		// If game was already won, show the victory modal
+		if (gameWon) {
+			setTimeout(() => showVictory(), 100);
+		}
 	}
 }
 

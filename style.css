@@ -12,15 +12,15 @@ body {
 
 /* PHASE BACKGROUNDS */
 body.phase-dystopian {
-	background: linear-gradient(135deg, #1a1a1a 0%, #2d1f1f 100%);
+	background: linear-gradient(135deg, #0a0a0a 0%, #1a0f0f 100%);
 }
 
 body.phase-recovery {
-	background: linear-gradient(135deg, #2d3d2d 0%, #3d4d3d 100%);
+	background: linear-gradient(135deg, #1a2e1a 0%, #2d4d2d 100%);
 }
 
 body.phase-thriving {
-	background: linear-gradient(135deg, #1a5f3f 0%, #2a8f5f 100%);
+	background: linear-gradient(135deg, #0d5d3d 0%, #1a9f6f 100%);
 }
 
 /* main layout */
@@ -42,6 +42,7 @@ body.phase-thriving {
 	font-size: 32px;
 	margin-bottom: 10px;
 	font-weight: bold;
+	font-family: Arial, sans-serif;
 }
 
 /* phase indicator */
@@ -55,6 +56,7 @@ body.phase-thriving {
 	margin-bottom: 8px;
 	font-weight: bold;
 	color: #7dd3fc;
+	font-family: Arial, sans-serif;
 }
 
 .phase-bar {
@@ -119,12 +121,13 @@ body.phase-thriving #earth {
 
 /* phase message */
 #phaseMessage {
-	font-size: 16px;
-	font-style: italic;
+	font-size: 14px;
+	font-weight: normal;
 	color: #a0aec0;
 	height: 24px;
 	margin-bottom: 8px;
 	transition: color 0.8s ease;
+	font-family: Arial, sans-serif;
 }
 
 body.phase-dystopian #phaseMessage {
@@ -218,6 +221,7 @@ button:hover {
 .modal.hidden {
 	display: none;
 	opacity: 0;
+	pointer-events: none;
 }
 
 .modal-content {
