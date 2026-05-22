@@ -5,7 +5,7 @@ let autoPower = 0;
 let clickCost = 10;
 let autoCost = 25;
 
-// load saved data
+// load game
 function loadGame() {
 	const saved = JSON.parse(localStorage.getItem("earthClickerSave"));
 	if (saved) {
@@ -33,16 +33,19 @@ function updateUI() {
 	document.getElementById("pointsDisplay").textContent = `Earth Points: ${points}`;
 	document.getElementById("clickCost").textContent = clickCost;
 	document.getElementById("autoCost").textContent = autoCost;
+
+	// NEW: per second display
+	document.getElementById("perSecDisplay").textContent = `+${autoPower} / sec`;
 }
 
-// clicking earth
+// click earth
 document.getElementById("earth").addEventListener("click", () => {
 	points += clickPower;
 	updateUI();
 	saveGame();
 });
 
-// upgrade click power
+// click upgrade
 document.getElementById("clickUpgradeBtn").addEventListener("click", () => {
 	if (points >= clickCost) {
 		points -= clickCost;
@@ -53,7 +56,7 @@ document.getElementById("clickUpgradeBtn").addEventListener("click", () => {
 	}
 });
 
-// upgrade auto click
+// auto upgrade
 document.getElementById("autoUpgradeBtn").addEventListener("click", () => {
 	if (points >= autoCost) {
 		points -= autoCost;
@@ -64,7 +67,7 @@ document.getElementById("autoUpgradeBtn").addEventListener("click", () => {
 	}
 });
 
-// auto generator
+// auto income
 setInterval(() => {
 	if (autoPower > 0) {
 		points += autoPower;
