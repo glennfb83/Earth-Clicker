@@ -15,28 +15,46 @@
 			
 			<div class="left">
 				<h2 id="pointsDisplay">Earth Points: 0</h2>
+				
+				<div id="phaseIndicator" class="phase-indicator">
+					<div id="phaseLabel">Phase: Dystopian Earth</div>
+					<div id="phaseBar" class="phase-bar">
+						<div id="phaseProgress" class="phase-progress"></div>
+					</div>
+				</div>
 
 				<div class="earth-container">
 					<img id="earth" src="assets/earth.png" alt="Earth">
+					<div id="phaseMessage" class="phase-message">Earth is dying...</div>
 					<div id="perSecDisplay">+0 / sec</div>
 				</div>
 			</div>
 
 			<div class="right">
-				<h3>Upgrades</h3>
+				<h3>Actions</h3>
 
 				<button id="clickUpgradeBtn">
-					Upgrade Click (+1) — Cost: <span id="clickCost">10</span>
+					Plant Trees (+1) — Cost: <span id="clickCost">10</span>
 				</button>
 
 				<button id="autoUpgradeBtn">
-					Auto Click (+1/sec) — Cost: <span id="autoCost">25</span>
+					Solar Panels (+1/sec) — Cost: <span id="autoCost">25</span>
 				</button>
 			</div>
 
 		</div>
 
 	</section>
+
+	<!-- Victory Modal -->
+	<div id="victoryModal" class="modal hidden">
+		<div class="modal-content">
+			<h1>🌍 Earth Restored! 🌍</h1>
+			<p id="victoryMessage"></p>
+			<div id="victoryStats"></div>
+			<button id="restartBtn" class="restart-btn">Play Again</button>
+		</div>
+	</div>
 
 	<script src="script.js"></script>
 </body>
