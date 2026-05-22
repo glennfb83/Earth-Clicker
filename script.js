@@ -35,7 +35,7 @@ function updateUI() {
 	document.getElementById("autoCost").textContent = autoCost;
 
 	// NEW: per second display
-	document.getElementById("perSecDisplay").textContent = `+${autoPower} / sec`;
+	document.getElementById("perSecDisplay").textContent = `+${autoPower.toFixed(1)} / sec`;
 }
 
 // click earth
