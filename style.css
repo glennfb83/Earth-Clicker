@@ -3,11 +3,59 @@ body {
 	font-family: Arial, sans-serif;
 	background: #0b1d2a;
 	color: white;
-	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	transition: background 0.8s ease;
+}
+
+/* CLIMATE BANNER */
+.climate-banner {
+	background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+	border-bottom: 2px solid rgba(16, 185, 129, 0.4);
+	padding: 15px 20px;
+	text-align: center;
+	backdrop-filter: blur(10px);
+}
+
+.banner-content h2 {
+	margin: 0 0 10px 0;
+	font-size: 20px;
+	color: #a7f3d0;
+	text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.banner-resources {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: background 0.8s ease;
+	gap: 12px;
+	margin-bottom: 8px;
+	flex-wrap: wrap;
+	font-size: 13px;
+}
+
+.banner-resources a {
+	color: #7dd3fc;
+	text-decoration: none;
+	transition: color 0.2s ease;
+	font-weight: 500;
+}
+
+.banner-resources a:hover {
+	color: #a7f3d0;
+	text-decoration: underline;
+}
+
+.banner-resources span {
+	color: rgba(125, 211, 252, 0.5);
+}
+
+.banner-tagline {
+	margin: 0;
+	font-size: 12px;
+	color: #a0aec0;
+	line-height: 1.4;
 }
 
 /* PHASE BACKGROUNDS */
@@ -24,6 +72,14 @@ body.phase-thriving {
 }
 
 /* main layout */
+.wrapper {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
 .game {
 	display: flex;
 	gap: 80px;
@@ -412,4 +468,32 @@ button:hover {
 .restart-btn:hover {
 	background: #059669;
 	transform: scale(1.05);
+}
+
+/* FOOTER */
+.footer {
+	background: linear-gradient(135deg, rgba(26, 95, 63, 0.3) 0%, rgba(59, 130, 246, 0.1) 100%);
+	border-top: 2px solid rgba(16, 185, 129, 0.4);
+	padding: 15px 20px;
+	text-align: center;
+	backdrop-filter: blur(10px);
+	margin-top: auto;
+}
+
+.footer p {
+	margin: 0;
+	font-size: 12px;
+	color: #a0aec0;
+	line-height: 1.4;
+}
+
+.footer a {
+	color: #7dd3fc;
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.footer a:hover {
+	color: #a7f3d0;
+	text-decoration: underline;
 }
